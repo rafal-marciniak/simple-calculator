@@ -1,4 +1,6 @@
-﻿namespace SimpleCalculator.Commands.Parsing
+﻿using Microsoft.Extensions.Hosting;
+
+namespace SimpleCalculator.Commands.Parsing
 {
 	internal class QuitCommandParser : ICommandParser
     {
@@ -8,12 +10,19 @@
         {
             if (CanParse(command))
             {
-                return new QuitCommand();
+                return new QuitCommand(_applicationLifetime);
             }
 
             return null;
         }
 
-        private const string QuitCommandName = "quit";
+		public QuitCommandParser(IHostApplicationLifetime applicationLifetime)
+		{
+			_applicationLifetime = applicationLifetime;
+		}
+
+		private readonly IHostApplicationLifetime _applicationLifetime;
+
+		private const string QuitCommandName = "quit";
     }
 }
