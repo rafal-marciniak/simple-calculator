@@ -1,5 +1,4 @@
-﻿using SimpleCalculator.Core.Commands;
-using System.Text;
+﻿using System.Text;
 
 namespace SimpleCalculator.Commands
 {

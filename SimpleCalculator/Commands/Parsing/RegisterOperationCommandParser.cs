@@ -1,5 +1,4 @@
 ﻿using SimpleCalculator.Core;
-using SimpleCalculator.Core.Commands;
 using System.Text.RegularExpressions;
 
 namespace SimpleCalculator.Commands.Parsing

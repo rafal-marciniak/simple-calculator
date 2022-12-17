@@ -1,8 +1,6 @@
-﻿using SimpleCalculator.Core.Commands;
-
-namespace SimpleCalculator.Commands
+﻿namespace SimpleCalculator.Commands
 {
-    internal class QuitCommand : ICommand
+	internal class QuitCommand : ICommand
 	{
 		public void Execute()
 		{

@@ -4,7 +4,7 @@
 	{
 		public decimal Value { get; private set; }
 
-		internal ConstantOperand(decimal value)
+		public ConstantOperand(decimal value)
 		{
 			Value = value;
 		}

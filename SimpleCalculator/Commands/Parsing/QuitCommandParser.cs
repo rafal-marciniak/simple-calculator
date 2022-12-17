@@ -1,8 +1,6 @@
-﻿using SimpleCalculator.Core.Commands;
-
-namespace SimpleCalculator.Commands.Parsing
+﻿namespace SimpleCalculator.Commands.Parsing
 {
-    internal class QuitCommandParser : ICommandParser
+	internal class QuitCommandParser : ICommandParser
     {
         public bool CanParse(string command) => command.Equals(QuitCommandName, StringComparison.InvariantCultureIgnoreCase);
 

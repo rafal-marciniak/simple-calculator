@@ -1,6 +1,4 @@
-﻿using SimpleCalculator.Core.Commands;
-
-namespace SimpleCalculator.Commands
+﻿namespace SimpleCalculator.Commands
 {
 	internal class ClearScreenCommand : ICommand
 	{

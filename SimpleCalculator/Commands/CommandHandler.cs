@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using SimpleCalculator.Commands.Parsing;
-using SimpleCalculator.Core.Commands;
 
 namespace SimpleCalculator.Commands
 {
