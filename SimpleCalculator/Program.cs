@@ -16,7 +16,8 @@ namespace SimpleCalculator
 				.ConfigureServices(services =>
 				{
 					services.AddHostedService<SimpleCalculatorHostedService>();
-					services.AddSingleton<ISimpleCalculatorArgs>(new SimpleCalculatorArgs(args));				
+					services.AddSingleton<ISimpleCalculatorArgs>(new SimpleCalculatorArgs(args));
+					services.AddSingleton<IConsoleProxy, ConsoleProxy>();
 
 					services.AddTransient<ICommandParser, QuitCommandParser>();
 					services.AddTransient<ICommandParser, RegisterOperationCommandParser>();

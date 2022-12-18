@@ -10,7 +10,7 @@ namespace SimpleCalculator.Tests.Commands.Parsing
 	internal class PrintCommandParserTests
 	{
 		[TestFixture]
-		public class CanParseTests : PrintCommandParserTests
+		public class CanParse : PrintCommandParserTests
 		{
 			[TestCaseSource(typeof(EmptyValueTestSource))]
 			public void CannotParseEmptyCommands(string command)
@@ -41,7 +41,7 @@ namespace SimpleCalculator.Tests.Commands.Parsing
 		}
 
 		[TestFixture]
-		public class ParseTests : PrintCommandParserTests
+		public class Parse : PrintCommandParserTests
 		{
 			[TestCaseSource(typeof(EmptyValueTestSource))]
 			public void ReturnsNullForEmptyCommands(string command)
@@ -74,7 +74,7 @@ namespace SimpleCalculator.Tests.Commands.Parsing
 
 		public PrintCommandParserTests()
 		{
-			Sut = new PrintCommandParser(Mock.Of<IRegistry>(), Mock.Of<ILogger<PrintCommandParser>>());
+			Sut = new PrintCommandParser(Mock.Of<IRegistry>(), Mock.Of<IConsoleProxy>(), Mock.Of<ILogger<PrintCommandParser>>());
 		}
 
 		protected readonly PrintCommandParser Sut;

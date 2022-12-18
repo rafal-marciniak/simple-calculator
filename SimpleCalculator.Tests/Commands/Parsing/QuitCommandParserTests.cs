@@ -9,7 +9,7 @@ namespace SimpleCalculator.Tests.Commands.Parsing
 	internal class QuitCommandParserTests
 	{
 		[TestFixture]
-		public class CanParseTests : QuitCommandParserTests
+		public class CanParse : QuitCommandParserTests
 		{
 			[TestCaseSource(typeof(EmptyValueTestSource))]
 			public void CannotParseEmptyCommands(string command)
@@ -47,7 +47,7 @@ namespace SimpleCalculator.Tests.Commands.Parsing
 		}
 
 		[TestFixture]
-		public class ParseTests : QuitCommandParserTests
+		public class Parse : QuitCommandParserTests
 		{
 			[TestCaseSource(typeof(EmptyValueTestSource))]
 			public void ReturnsNullForEmptyCommands(string command)

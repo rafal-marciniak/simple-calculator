@@ -8,12 +8,18 @@
 		{
 			if (CanParse(command))
 			{
-				return new ClearScreenCommand();
+				return new ClearScreenCommand(_console);
 			}
 
 			return null;
 		}
 
+		public ClearScreenCommandParser(IConsoleProxy console)
+		{
+			_console = console;
+		}
+
+		private readonly IConsoleProxy _console;
 		private const string ClearScreenCommandName = "cls";
 	}
 }

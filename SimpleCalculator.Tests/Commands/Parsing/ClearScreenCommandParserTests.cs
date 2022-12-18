@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Moq;
+using NUnit.Framework;
 using SimpleCalculator.Commands;
 using SimpleCalculator.Commands.Parsing;
 
@@ -7,7 +8,7 @@ namespace SimpleCalculator.Tests.Commands.Parsing
 	internal class ClearScreenCommandParserTests
 	{
 		[TestFixture]
-		public class CanParseTests : ClearScreenCommandParserTests
+		public class CanParse : ClearScreenCommandParserTests
 		{
 			[TestCaseSource(typeof(EmptyValueTestSource))]
 			public void CannotParseEmptyCommands(string command)
@@ -45,7 +46,7 @@ namespace SimpleCalculator.Tests.Commands.Parsing
 		}
 
 		[TestFixture]
-		public class ParseTests : ClearScreenCommandParserTests
+		public class Parse : ClearScreenCommandParserTests
 		{
 			[TestCaseSource(typeof(EmptyValueTestSource))]
 			public void ReturnsNullForEmptyCommands(string command)
@@ -86,7 +87,7 @@ namespace SimpleCalculator.Tests.Commands.Parsing
 
 		public ClearScreenCommandParserTests()
 		{
-			Sut = new ClearScreenCommandParser();
+			Sut = new ClearScreenCommandParser(Mock.Of<IConsoleProxy>());
 		}
 
 		protected readonly ClearScreenCommandParser Sut;

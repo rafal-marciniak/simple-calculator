@@ -10,7 +10,7 @@ namespace SimpleCalculator.Commands
 			try
 			{
 				var registerValue = _registry.GetRegisterValue(_registerKey);
-				Console.WriteLine(registerValue);
+				_console.WriteLine(registerValue);
 			}
 			catch (ArgumentException e)
 			{
@@ -18,15 +18,17 @@ namespace SimpleCalculator.Commands
 			}
 		}
 
-		public PrintCommand(IRegistry registry, string registerKey, ILogger logger)
+		public PrintCommand(IRegistry registry, string registerKey, IConsoleProxy console, ILogger logger)
 		{
 			_registry = registry;
 			_registerKey = registerKey;
+			_console = console;
 			_logger = logger;
 		}
 
 		private readonly IRegistry _registry;
 		private readonly string _registerKey;
+		private readonly IConsoleProxy _console;
 		private readonly ILogger _logger;
 	}
 }

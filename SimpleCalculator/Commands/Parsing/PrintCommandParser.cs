@@ -15,19 +15,21 @@ namespace SimpleCalculator.Commands.Parsing
 				var match = CommandRegex().Match(command);
 				var registerKey = match.Groups[1].Value;
 
-				return new PrintCommand(_registry, registerKey, _logger);
+				return new PrintCommand(_registry, registerKey, _console, _logger);
 			}
 
 			return null;
 		}
 
-		public PrintCommandParser(IRegistry registry, ILogger<PrintCommandParser> logger)
+		public PrintCommandParser(IRegistry registry, IConsoleProxy console, ILogger<PrintCommandParser> logger)
 		{
 			_registry = registry;
+			_console = console;
 			_logger = logger;
 		}
 
 		private readonly IRegistry _registry;
+		private readonly IConsoleProxy _console;
 		private readonly ILogger<PrintCommandParser> _logger;
 
 		[GeneratedRegex("^print\\s+(\\w+)$")]

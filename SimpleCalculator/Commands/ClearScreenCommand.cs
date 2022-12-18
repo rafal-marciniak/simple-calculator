@@ -4,7 +4,14 @@
 	{
 		public void Execute()
 		{
-			Console.Clear();
+			_console.Clear();
 		}
+
+		public ClearScreenCommand(IConsoleProxy console)
+		{
+			_console = console;
+		}
+
+		private readonly IConsoleProxy _console;
 	}
 }

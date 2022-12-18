@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Moq;
+using NUnit.Framework;
 using SimpleCalculator.Commands;
 using SimpleCalculator.Commands.Parsing;
 
@@ -7,7 +8,7 @@ namespace SimpleCalculator.Tests.Commands.Parsing
 	internal class HelpCommandParserTests
 	{
 		[TestFixture]
-		public class CanParseTests : HelpCommandParserTests
+		public class CanParse : HelpCommandParserTests
 		{
 			[TestCaseSource(typeof(EmptyValueTestSource))]
 			public void CannotParseEmptyCommands(string command)
@@ -45,7 +46,7 @@ namespace SimpleCalculator.Tests.Commands.Parsing
 		}
 
 		[TestFixture]
-		public class ParseTests : HelpCommandParserTests
+		public class Parse : HelpCommandParserTests
 		{
 			[TestCaseSource(typeof(EmptyValueTestSource))]
 			public void ReturnsNullForEmptyCommands(string command)
@@ -86,7 +87,7 @@ namespace SimpleCalculator.Tests.Commands.Parsing
 
 		public HelpCommandParserTests()
 		{
-			Sut = new HelpCommandParser();
+			Sut = new HelpCommandParser(Mock.Of<IConsoleProxy>());
 		}
 
 		protected readonly HelpCommandParser Sut;

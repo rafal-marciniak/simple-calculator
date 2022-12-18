@@ -8,12 +8,18 @@
 		{
 			if (CanParse(command))
 			{
-				return new HelpCommand();
+				return new HelpCommand(_console);
 			}
 
 			return null;
 		}
 
+		public HelpCommandParser(IConsoleProxy console)
+		{
+			_console = console;
+		}
+
+		private readonly IConsoleProxy _console;
 		private const string HelpCommandName = "help";
 	}
 }
