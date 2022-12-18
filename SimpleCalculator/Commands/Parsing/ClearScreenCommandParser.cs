@@ -2,7 +2,7 @@
 {
 	internal class ClearScreenCommandParser : ICommandParser
 	{
-		public bool CanParse(string command) => command.Equals(ClearScreenCommandName, StringComparison.InvariantCultureIgnoreCase);
+		public bool CanParse(string command) => string.Equals(command, ClearScreenCommandName, StringComparison.InvariantCultureIgnoreCase);
 
 		public ICommand? Parse(string command)
 		{

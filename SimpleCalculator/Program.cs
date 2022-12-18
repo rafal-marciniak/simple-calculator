@@ -7,7 +7,7 @@ using SimpleCalculator.Core;
 
 namespace SimpleCalculator
 {
-	internal class Program
+	internal sealed class Program
 	{
 		static async Task Main(string[] args)
 		{

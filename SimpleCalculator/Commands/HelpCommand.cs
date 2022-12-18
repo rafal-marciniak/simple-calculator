@@ -4,13 +4,13 @@ namespace SimpleCalculator.Commands
 {
 	internal class HelpCommand : ICommand
 	{
-		//TODO: read a help file?
 		public void Execute()
 		{
+			//TODO: read a help file?
 			var sb = new StringBuilder();
 			
 			sb.AppendLine("<register> <operation> <value>|<register>");
-			sb.AppendLine("Executes and operation on a specified register. You can provide a constant value or a name of another register.");
+			sb.AppendLine("Executes and operation on a specified register. You can provide a constant value (decimals accept a single dot) or a name of another register.");
 			sb.AppendLine("Currently supported operations: add|subtract|multiply.");
 
 			sb.AppendLine();

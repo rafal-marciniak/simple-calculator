@@ -1,10 +1,10 @@
 ﻿namespace SimpleCalculator
 {
-	public class SimpleCalculatorArgs : ISimpleCalculatorArgs
+	internal class SimpleCalculatorArgs : ISimpleCalculatorArgs
 	{
-		public string[] Args {get; private set;}
+		public string[] Args { get; private set;}
 
-		public SimpleCalculatorArgs(string[] args)
+		internal SimpleCalculatorArgs(string[] args)
 		{
 			Args = args;
 		}

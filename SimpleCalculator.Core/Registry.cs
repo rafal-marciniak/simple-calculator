@@ -9,7 +9,7 @@ namespace SimpleCalculator.Core
 		{
 			if (!_registers.ContainsKey(registerKey))
 			{
-				throw new ArgumentException($"Register {registerKey} not found.");
+				throw new ArgumentException($"Register '{registerKey}' not found.");
 			}
 
 			ApplyPendingChangesIfNecessary(registerKey);

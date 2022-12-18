@@ -2,7 +2,7 @@
 {
 	internal class HelpCommandParser : ICommandParser
 	{
-		public bool CanParse(string command) => command.Equals(HelpCommandName, StringComparison.InvariantCultureIgnoreCase);
+		public bool CanParse(string command) => string.Equals(command, HelpCommandName, StringComparison.InvariantCultureIgnoreCase);
 
 		public ICommand? Parse(string command)
 		{

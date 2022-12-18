@@ -1,6 +1,6 @@
 ﻿namespace SimpleCalculator
 {
-	public interface ISimpleCalculatorArgs
+	internal interface ISimpleCalculatorArgs
 	{
 		string[] Args { get; }
 	}

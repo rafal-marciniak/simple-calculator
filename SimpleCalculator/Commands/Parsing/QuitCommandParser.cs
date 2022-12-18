@@ -4,7 +4,7 @@ namespace SimpleCalculator.Commands.Parsing
 {
 	internal class QuitCommandParser : ICommandParser
     {
-        public bool CanParse(string command) => command.Equals(QuitCommandName, StringComparison.InvariantCultureIgnoreCase);
+        public bool CanParse(string command) => string.Equals(command, QuitCommandName, StringComparison.InvariantCultureIgnoreCase);
 
         public ICommand? Parse(string command)
         {
@@ -22,7 +22,6 @@ namespace SimpleCalculator.Commands.Parsing
 		}
 
 		private readonly IHostApplicationLifetime _applicationLifetime;
-
 		private const string QuitCommandName = "quit";
     }
 }

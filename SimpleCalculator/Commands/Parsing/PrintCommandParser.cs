@@ -6,14 +6,19 @@ namespace SimpleCalculator.Commands.Parsing
 {
 	internal partial class PrintCommandParser : ICommandParser
 	{
-		public bool CanParse(string command) => CommandRegex().IsMatch(command);
+		public bool CanParse(string command) => command != null && CommandRegex().IsMatch(command);
 
 		public ICommand? Parse(string command)
 		{
-			var match = CommandRegex().Match(command);
-			var registerKey = match.Groups[1].Value;
+			if (CanParse(command))
+			{
+				var match = CommandRegex().Match(command);
+				var registerKey = match.Groups[1].Value;
 
-			return new PrintCommand(_registry, registerKey, _logger);
+				return new PrintCommand(_registry, registerKey, _logger);
+			}
+
+			return null;
 		}
 
 		public PrintCommandParser(IRegistry registry, ILogger<PrintCommandParser> logger)

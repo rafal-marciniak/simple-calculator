@@ -65,18 +65,23 @@ namespace SimpleCalculator
 		{
 			if (File.Exists(filePath))
 			{
-				Console.WriteLine($"Reading {filePath}.");
-				Console.WriteLine();
+				Console.WriteLine($"Reading {filePath}:");
 
 				var commands = (await File.ReadAllLinesAsync(filePath))
 					.Where(line => !string.IsNullOrWhiteSpace(line));
+
+				if (!commands.Any())
+				{
+					_logger.LogWarning("No commands found.");
+					return;
+				}
 
 				foreach (var command in commands)
 				{
 					Console.WriteLine(command);
 				}
 
-				Console.WriteLine();
+				Console.WriteLine("\r\nExecuting commands:");
 
 				foreach (var command in commands)
 				{
