@@ -9,7 +9,7 @@ namespace SimpleCalculator.Commands
 		{
 			try
 			{
-				var registerValue = _registry.CalculateRegisterValue(_registerKey);
+				var registerValue = _registry.GetRegisterValue(_registerKey);
 				Console.WriteLine(registerValue);
 			}
 			catch (ArgumentException e)

@@ -1,11 +1,11 @@
 ﻿namespace SimpleCalculator.Core
 {
-	internal class Register
+	public class Register
 	{
-		internal string Key { get; private set; }
-		internal decimal Value { get; set; }
+		public string Key { get; private set; }
+		public decimal Value { get; set; }
 
-		internal Register(string key)
+		public Register(string key)
 		{
 			Key = key;
 		}

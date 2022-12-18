@@ -1,10 +1,11 @@
 ﻿using SimpleCalculator.Core.Extensions;
+using SimpleCalculator.Core.Operations;
 
 namespace SimpleCalculator.Core
 {
-	public class Registry : IRegistry
+    public class Registry : IRegistry
 	{
-		public decimal CalculateRegisterValue(string registerKey)
+		public decimal GetRegisterValue(string registerKey)
 		{
 			if (!_registers.ContainsKey(registerKey))
 			{
@@ -16,31 +17,15 @@ namespace SimpleCalculator.Core
 			return _registers[registerKey].Value;
 		}
 
-		//todo move it somewhere internal
-		public decimal GetRegisterValue(string registerKey)
-		{
-			var register = _registers.GetOrAdd(registerKey, new Register(registerKey));
-
-			return register.Value;
-		}
-
-		//todo move it somewhere internal
-		public decimal SetRegisterValue(string registerKey, decimal value)
-		{
-			var register = _registers.GetOrAdd(registerKey, new Register(registerKey));
-
-			return register.Value = value;
-		}
-
-		public void AppendRegisterChange(string registerKey, IRegisterChange registerChange)
+		public void AppendRegisterChange(string registerKey, IRegisterOperation operation)
 		{
 			if (!_registers.ContainsKey(registerKey))
 			{
 				_registers.Add(registerKey, new Register(registerKey));
 			}
 
-			var list = _pendingChanges.GetOrAdd(registerKey, new Queue<IRegisterChange>());
-			list.Enqueue(registerChange);
+			var list = _pendingChanges.GetOrAdd(registerKey, new Queue<IRegisterOperation>());
+			list.Enqueue(operation);
 		}
 
 		private void ApplyPendingChangesIfNecessary(string registerKey)
@@ -50,12 +35,13 @@ namespace SimpleCalculator.Core
 				while (changesQueue.Any())
 				{
 					var change = changesQueue.Dequeue();
-					change.Apply();
+					var register = _registers[registerKey];
+					change.Apply(register);
 				}
 			}
 		}
 
 		private readonly Dictionary<string, Register> _registers = new();
-		private readonly Dictionary<string, Queue<IRegisterChange>> _pendingChanges = new();
+		private readonly Dictionary<string, Queue<IRegisterOperation>> _pendingChanges = new();
 	}
 }

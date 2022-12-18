@@ -1,10 +1,10 @@
-﻿namespace SimpleCalculator.Core
+﻿using SimpleCalculator.Core.Operations;
+
+namespace SimpleCalculator.Core
 {
-	public interface IRegistry
+    public interface IRegistry
 	{
-		decimal CalculateRegisterValue(string registerKey);
 		decimal GetRegisterValue(string registerKey);
-		decimal SetRegisterValue(string registerKey, decimal value);
-		void AppendRegisterChange(string registerKey, IRegisterChange registerChange);
+		void AppendRegisterChange(string registerKey, IRegisterOperation registerChange);
 	}
 }

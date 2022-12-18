@@ -1,8 +1,9 @@
 ﻿using SimpleCalculator.Core;
+using SimpleCalculator.Core.Operations;
 
 namespace SimpleCalculator.Commands
 {
-	public class RegisterOperationCommand : ICommand
+    public class RegisterOperationCommand : ICommand
 	{
 		public void Execute()
 		{
@@ -10,15 +11,15 @@ namespace SimpleCalculator.Commands
 					? new RegisterOperand(_registry, _registerToTakeValueFrom)
 					: new ConstantOperand(_value.GetValueOrDefault(0));
 
-			IRegisterChange registerChange = _operationType switch
+			IRegisterOperation operation = _operationType switch
 			{
-				RegisterOperationType.Add => new RegisterAdd(_registry, _registerKey, operand),
-				RegisterOperationType.Subtract => new RegisterSubtract(_registry, _registerKey, operand),
-				RegisterOperationType.Multiply => new RegisterMultiply(_registry, _registerKey, operand),
-				_ => throw new Exception(), //todo: create a custom exception for this
+				RegisterOperationType.Add => new RegisterAdd(operand),
+				RegisterOperationType.Subtract => new RegisterSubtract(operand),
+				RegisterOperationType.Multiply => new RegisterMultiply(operand),
+				_ => throw new Exception("Unsupported operation type."),
 			};
 
-			_registry.AppendRegisterChange(_registerKey, registerChange);
+			_registry.AppendRegisterChange(_registerKey, operation);
 		}
 
 		public RegisterOperationCommand(IRegistry registry, string registerKey, string operationType, decimal value)
