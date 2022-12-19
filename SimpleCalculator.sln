@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCalculator.Tests", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCalculator.Core.Tests", "SimpleCalculator.Core.Tests\SimpleCalculator.Core.Tests.csproj", "{D4733A51-0FD5-4022-A713-085230279793}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCalculator.IntegrationTests", "SimpleCalculator.IntegrationTests\SimpleCalculator.IntegrationTests.csproj", "{8DF7B050-0B5A-45D9-80E5-B13737C72F04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D4733A51-0FD5-4022-A713-085230279793}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4733A51-0FD5-4022-A713-085230279793}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4733A51-0FD5-4022-A713-085230279793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DF7B050-0B5A-45D9-80E5-B13737C72F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DF7B050-0B5A-45D9-80E5-B13737C72F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DF7B050-0B5A-45D9-80E5-B13737C72F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DF7B050-0B5A-45D9-80E5-B13737C72F04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
