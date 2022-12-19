@@ -17,8 +17,14 @@ namespace SimpleCalculator.IntegrationTests
 			//arrange
 			var hostApplicationLifetime = Mock.Of<IHostApplicationLifetime>();
 			var console = new Mock<IConsoleProxy>();
-
-			var commands = new[] { "Area add PI", "Area multiply R", "Area multiply R", "R add 10", "PI add 3.142", "print Area", "quit" };
+			var input = @"  Area add PI
+							Area multiply R
+							Area multiply R
+							R add 10
+							PI add 3.142
+							print Area
+							quit";
+			var commands = input.Split(Environment.NewLine);
 			var registry = new Registry();
 			var parsers = new ICommandParser[]
 			{
