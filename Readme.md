@@ -1,4 +1,4 @@
-# Requirements:
+# Requirements
 - .NET 7, or above
 - recommended: Visual Studio 2022 (17.4.3 or above)
 
