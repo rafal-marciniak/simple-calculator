@@ -6,7 +6,7 @@ using SimpleCalculator.Core;
 
 namespace SimpleCalculator.Tests.Commands
 {
-    internal class PrintCommandTests
+    public class PrintCommandTests
     {
         [Test]
         public void ReadsRegisterValueUsingTheProvidedKey()

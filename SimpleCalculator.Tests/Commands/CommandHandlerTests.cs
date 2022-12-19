@@ -7,7 +7,7 @@ using SimpleCalculator.Commands.Parsing;
 namespace SimpleCalculator.Tests.Commands
 {
 	[TestFixture]
-	internal class CommandHandlerTests
+	public class CommandHandlerTests
 	{
 		[Test]
 		public void TrimsAndConvertsTheCommandToLowerCase()

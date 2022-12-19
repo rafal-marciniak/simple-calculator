@@ -24,8 +24,9 @@ namespace SimpleCalculator.Core
 				_registers.Add(registerKey, new Register(registerKey));
 			}
 
-			var list = _pendingChanges.GetOrAdd(registerKey, new Queue<IRegisterOperation>());
-			list.Enqueue(operation);
+			_pendingChanges
+				.GetOrAdd(registerKey, new Queue<IRegisterOperation>())
+				.Enqueue(operation);
 		}
 
 		private void ApplyPendingChangesIfNecessary(string registerKey)

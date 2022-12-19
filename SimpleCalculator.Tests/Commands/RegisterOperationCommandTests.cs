@@ -6,7 +6,7 @@ using SimpleCalculator.Core.Operations;
 
 namespace SimpleCalculator.Tests.Commands
 {
-	internal class RegisterOperationCommandTests
+	public class RegisterOperationCommandTests
 	{
 		[TestCase("add", typeof(RegisterAdd))]
 		[TestCase("subtract", typeof(RegisterSubtract))]

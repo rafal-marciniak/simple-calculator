@@ -4,7 +4,7 @@ using SimpleCalculator.Commands;
 
 namespace SimpleCalculator.Tests.Commands
 {
-	internal class ClearScreenCommandTests
+	public class ClearScreenCommandTests
 	{
 		[Test]
 		public void CallsClearOnSystemConsole()

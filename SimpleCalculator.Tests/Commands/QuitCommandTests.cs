@@ -5,7 +5,7 @@ using SimpleCalculator.Commands;
 
 namespace SimpleCalculator.Tests.Commands
 {
-	internal class QuitCommandTests
+	public class QuitCommandTests
 	{
 		[Test]
 		public void StopsTheApplicationGracefullyWhenExecuted()

@@ -2,7 +2,7 @@
 
 namespace SimpleCalculator.Tests
 {
-	internal class EmptyValueTestSource : IEnumerable
+	public class EmptyValueTestSource : IEnumerable
 	{
 		public IEnumerator GetEnumerator()
 		{

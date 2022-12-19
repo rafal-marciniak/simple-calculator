@@ -1,17 +1,11 @@
 ﻿namespace SimpleCalculator.Core.Operations
 {
-    public class RegisterMultiply : IRegisterOperation
-    {
-        public void Apply(Register register)
-        {
-            _registerSimpleOperation.Apply(register);
-        }
+    public class RegisterMultiply : RegisterBasicOperation
+	{
+		protected override decimal ApplyOperation(decimal registerValue, decimal operandValue)
+			=> registerValue * operandValue;
 
-        public RegisterMultiply(IOperand operand)
-        {
-            _registerSimpleOperation = new RegisterSimpleOperation(operand, (currentValue, operandValue) => currentValue * operandValue);
-        }
-
-        private readonly IRegisterOperation _registerSimpleOperation;
-    }
+		public RegisterMultiply(IOperand operand)
+			: base(operand) { }
+	}
 }
