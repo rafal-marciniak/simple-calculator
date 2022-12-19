@@ -9,18 +9,12 @@ namespace SimpleCalculator.Tests.Commands
 		[Test]
 		public void CallsClearOnSystemConsole()
 		{
-			_sut.Execute();
+			var consoleProxyMock = new Mock<IConsoleProxy>();
+			var sut = new ClearScreenCommand(consoleProxyMock.Object);
 
-			_consoleProxyMock.Verify(x => x.Clear(), Times.Once);
+			sut.Execute();
+
+			consoleProxyMock.Verify(x => x.Clear(), Times.Once);
 		}
-
-		public ClearScreenCommandTests()
-		{
-			_consoleProxyMock = new Mock<IConsoleProxy>();
-			_sut = new ClearScreenCommand(_consoleProxyMock.Object);
-		}
-
-		private readonly Mock<IConsoleProxy> _consoleProxyMock;
-		private readonly ClearScreenCommand _sut;
 	}
 }

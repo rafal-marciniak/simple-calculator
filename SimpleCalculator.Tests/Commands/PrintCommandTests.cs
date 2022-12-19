@@ -11,17 +11,17 @@ namespace SimpleCalculator.Tests.Commands
         [Test]
         public void ReadsRegisterValueUsingTheProvidedKey()
         {
-            _sut?.Execute();
+            _sut!.Execute();
 
-            _registryMock?.Verify(x => x.GetRegisterValue(It.Is<string>(key => key == RegisterKey)), Times.Once);
+            _registryMock!.Verify(x => x.GetRegisterValue(It.Is<string>(key => key == RegisterKey)), Times.Once);
         }
 
         [Test]
         public void WritesTheRegistervalueToTheConsole()
         {
-            _sut?.Execute();
+            _sut!.Execute();
 
-            _consoleProxyMock?.Verify(x => x.WriteLine(It.Is<decimal>(value => value == 150)), Times.Once);
+            _consoleProxyMock!.Verify(x => x.WriteLine(It.Is<decimal>(value => value == 150)), Times.Once);
         }
 
 		[SetUp]

@@ -12,18 +12,18 @@ namespace SimpleCalculator.Tests.Commands
 		[Test]
 		public void TrimsAndConvertsTheCommandToLowerCase()
 		{
-			_sut?.Handle("  test COMMAND  ");
+			_sut!.Handle("  test COMMAND  ");
 
-			_commandParser2?.Verify(x => x.Parse(It.Is<string>(c => c == "test command")), Times.Once);
+			_commandParser2!.Verify(x => x.Parse(It.Is<string>(c => c == "test command")), Times.Once);
 		}
 
 		[Test]
 		public void OnlyCallsParseOnParsersThatCanParseTheCommand()
 		{
-			_sut?.Handle("say parse one more time");
+			_sut!.Handle("say parse one more time");
 
-			_commandParser1?.Verify(x => x.Parse(It.IsAny<string>()), Times.Never);
-			_commandParser2?.Verify(x => x.Parse(It.IsAny<string>()), Times.Once);
+			_commandParser1!.Verify(x => x.Parse(It.IsAny<string>()), Times.Never);
+			_commandParser2!.Verify(x => x.Parse(It.IsAny<string>()), Times.Once);
 		}
 
 		[Test]
@@ -31,11 +31,11 @@ namespace SimpleCalculator.Tests.Commands
 		{
 			var commandMock = new Mock<ICommand>();	
 
-			_commandParser2?
+			_commandParser2!
 				.Setup(x => x.Parse(It.IsAny<string>()))
 				.Returns(commandMock.Object);
 
-			_sut?.Handle("test command");
+			_sut!.Handle("test command");
 
 			commandMock.Verify(x => x.Execute(), Times.Once);
 		}
